@@ -6,6 +6,20 @@
     <title>Recipes Home</title>
 </head>
 <body>
-    My recipes! 23124124124
+<div th:each="recipe : ${recipes}">
+    <h2 th:text = "${recipe?.getDescription()}">Description</h2>
+    <p th:text = "'Difficulty: ' + ${recipe.getDifficulty()}"></p>
+    <p th:text = "'Prep time: ' + ${recipe.getPrepTime()} + min"></p>
+    <p th:text = "'Cook time: ' + ${recipe.getCookTime()} + min"></p>
+    <p th:text = "'Total time: ' + ${recipe.getPrepTime() + recipe.getCookTime()} + min"></p>
+    <p th:text = "'Servings: ' + ${recipe.getServings()}"></p>
+    <h3>Ingredients</h3>
+    <div th:each = "ingredient : ${recipe?.getIngredients()}" th:text = "${ingredient.toString()}">ingredient</div>
+    <h2>Directions</h2>
+    <p th:text = "${recipe?.getDirections()}" style="white-space: pre-line"></p>
+    <h2>Notes</h2>
+    <p th:text = "${recipe?.getNotes()?.toString()}" style="white-space: pre-line"></p>
+</div>
+
 </body>
 </html>

@@ -11,8 +11,12 @@ public class UnitOfMeasure {
 
     private String description;
 
-    public UnitOfMeasure(String description) {
-        this.description = description;
+    public UnitOfMeasure() {
+    }
+
+    @Override
+    public String toString() {
+        return description;
     }
 
     public Long getId() {
@@ -23,7 +27,12 @@ public class UnitOfMeasure {
         this.id = id;
     }
 
+
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
